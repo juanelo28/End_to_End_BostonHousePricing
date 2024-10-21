@@ -1,3 +1,111 @@
-<h1>
-    hello world
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Input Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        form {
+            display: grid;
+            grid-gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    {{prediction_text}}
+    <div class="container">
+        <h1>Boston house pricing prediction</h1>
+        <form action="{{ url_for('predict')}}" method="POST">
+            <label for="CRIM">CRIM (Per Capita Crime Rate by Town):</label>
+            <input type="text" id="CRIM" name="CRIM" placeholder="0.00632" required>
+
+            <label for="ZN">ZN (Proportion of Residential Land Zoned):</label>
+            <input type="text" id="ZN" name="ZN" placeholder="180.0" required>
+
+            <label for="INDUS">INDUS (Proportion of Non-Retail Business Acres per Town):</label>
+            <input type="text" id="INDUS" name="INDUS" placeholder="2.31" required>
+
+            <label for="CHAS">CHAS (Charles River Dummy Variable):</label>
+            <input type="text" id="CHAS" name="CHAS" placeholder="0.0" required>
+
+            <label for="NOX">NOX (Nitric Oxides Concentration):</label>
+            <input type="text" id="NOX" name="NOX" placeholder="0.538" required>
+
+            <label for="RM">RM (Average Number of Rooms per Dwelling):</label>
+            <input type="text" id="RM" name="RM" placeholder="6.575" required>
+
+            <label for="AGE">AGE (Proportion of Owner-Occupied Units Built Prior to 1940):</label>
+            <input type="text" id="AGE" name="AGE" placeholder="65.2" required>
+
+            <label for="DIS">DIS (Weighted Distance to Employment Centers):</label>
+            <input type="text" id="DIS" name="DIS" placeholder="4.0900" required>
+
+            <label for="RAD">RAD (Index of Accessibility to Radial Highways):</label>
+            <input type="text" id="RAD" name="RAD" placeholder="1.0" required>
+
+            <label for="TAX">TAX (Full-Value Property-Tax Rate per $10,000):</label>
+            <input type="text" id="TAX" name="TAX" placeholder="296" required>
+
+            <label for="PTRATIO">PTRATIO (Pupil-Teacher Ratio by Town):</label>
+            <input type="text" id="PTRATIO" name="PTRATIO" placeholder="15.3" required>
+
+            <label for="B">B (1000(Bk−0.63)² where Bk is the Proportion of Blacks by Town):</label>
+            <input type="text" id="B" name="B" placeholder="397.90" required>
+
+            <label for="LSTAT">LSTAT (% Lower Status of the Population):</label>
+            <input type="text" id="LSTAT" name="LSTAT" placeholder="4.98" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
