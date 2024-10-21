@@ -12,3 +12,7 @@ Create a new environment
 ```
 conda create -p venv python==3.11 -y
 ```
+
+The web app can be found here: https://e2e-boston-house-pricing-6faebb2fe817.herokuapp.com/
+
+The name of the web app in Heroku is "e2e-boston-house-pricing"
