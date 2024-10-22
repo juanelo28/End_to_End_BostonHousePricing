@@ -45,3 +45,63 @@ jobs:
 
     - name: Release the Docker container on Heroku
       run: heroku container:release web --app ${{ secrets.HEROKU_APP_NAME }}
+
+
+
+# What we're doing here:
+# 
+# Set Heroku stack to container:
+# 
+# The new step "Set Heroku stack to container" switches your Heroku app 
+# to the container stack, which is required for Docker-based deployments.
+# The command `heroku stack:set container --app ${{ secrets.HEROKU_APP_NAME }}` 
+# sets the app's stack to use Docker containers.
+# 
+# GitHub Secrets:
+# 
+# Make sure to have these GitHub repository secrets configured:
+# - DOCKER_USERNAME: Your Docker Hub username.
+# - DOCKER_PASSWORD: Your Docker Hub password or access token.
+# - HEROKU_API_KEY: Your Heroku API key.
+# - HEROKU_EMAIL: The email associated with your Heroku account.
+# - HEROKU_APP_NAME: The name of your Heroku app.
+# 
+# Step-by-step explanation of the above YAML file:
+# 
+# Checkout the repository:
+# 
+# `actions/checkout@v2` checks out your repository's code.
+# 
+# Set up Docker Buildx:
+# 
+# This step sets up Docker Buildx, a tool used for building Docker images.
+# 
+# Log in to Docker Hub:
+# 
+# This logs you into Docker Hub using the credentials stored in your GitHub Secrets.
+# 
+# Build and push Docker image to Docker Hub:
+# 
+# Builds the Docker image from your Dockerfile and tags it as `my-app:latest`.
+# Pushes the Docker image to your Docker Hub repository.
+# 
+# Log in to Heroku:
+# 
+# Logs in to Heroku with the Heroku API key and email configured in your GitHub Secrets.
+# 
+# Set the Heroku stack to container:
+# 
+# Switches your Heroku app's stack to the container stack, which is necessary 
+# for Docker-based deployments.
+# 
+# Push the Docker container to Heroku:
+# 
+# Pushes the built Docker container to Heroku’s Container Registry.
+# 
+# Release the Docker container on Heroku:
+# 
+# This step releases the Docker container as the current version of your Heroku app.
+# 
+# By running this YAML file as part of the GitHub Actions workflow, it's possible to fully automate 
+# the process of switching to the container stack, building and pushing your Docker container, 
+# and releasing it to Heroku.
